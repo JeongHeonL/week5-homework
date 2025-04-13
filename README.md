@@ -87,6 +87,8 @@ class MyHomePage extends StatelessWidget {
   <hr>
 </hr>
 </pre>
+![2](https://github.com/user-attachments/assets/2ed05607-a135-42d3-9cbe-cf55d0e60c28)
+
 #### 계산기 화면 구현 
 <pre>
 <code>
@@ -229,3 +231,4 @@ class _CalculatorWidgetState extends State<CalculatorWidget> {
 
 </code>
 </pre>
+![3](https://github.com/user-attachments/assets/68e9cfe6-e5d7-4b4d-9de6-6238eceff502)
