@@ -1,6 +1,7 @@
 # week5-homework
 
 <pre>
+  #### 화면나누기기
   <code>
 import 'package:flutter/material.dart';
 
@@ -83,4 +84,6 @@ class MyHomePage extends StatelessWidget {
   }
 }
   </code>
+  <hr>
+</hr>
 </pre>
