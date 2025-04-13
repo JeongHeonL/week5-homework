@@ -87,3 +87,145 @@ class MyHomePage extends StatelessWidget {
   <hr>
 </hr>
 </pre>
+#### 계산기 화면 구현 
+<pre>
+<code>
+  import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData.dark(),
+      home: Scaffold(
+        appBar: AppBar(
+        ),
+        body: const Center(
+          child: SizedBox(
+            width: 800,
+            height: 800, 
+            child: CalculatorWidget(), // 계산기 위젯을 SizedBox 안에 넣음
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class CalculatorWidget extends StatefulWidget {
+  const CalculatorWidget({Key? key}) : super(key: key);
+
+  @override
+  State<CalculatorWidget> createState() => _CalculatorWidgetState();
+}
+
+class _CalculatorWidgetState extends State<CalculatorWidget> {
+  String _output = "0";
+
+  void buttonPressed(String buttonText) {
+    setState(() {
+      // 버튼 클릭 시 처리 로직 추가
+      _output = buttonText; // 임시로 버튼 텍스트를 출력
+    });
+  }
+
+  Widget buildButton(String buttonText) {
+    return Expanded(
+      child: Padding(
+        padding: const EdgeInsets.all(4.0),
+        child: MaterialButton(
+          padding: const EdgeInsets.all(24.0),
+          child: Text(
+            buttonText,
+            style: const TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+          ),
+          color: Colors.grey[800],
+          textColor: Colors.white,
+          onPressed: () => buttonPressed(buttonText),
+        ),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.black, width: 2), // 테두리 추가 (선택 사항)
+      ),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: null,
+        body: Column(
+          children: <Widget>[
+            Container(
+              alignment: Alignment.centerRight,
+              padding: const EdgeInsets.symmetric(vertical: 24.0, horizontal: 12.0),
+              child: Text(
+                _output,
+                style: const TextStyle(fontSize: 48.0, fontWeight: FontWeight.bold, color: Colors.white),
+              ),
+            ),
+            const Expanded(
+              child: Divider(),
+            ),
+            Column(
+              children: [
+                Row(
+                  children: [
+                    buildButton("%"),
+                    buildButton("CE"),
+                    buildButton("C"),
+                    buildButton("MR"),
+                  ],
+                ),
+                Row(
+                  children: [
+                    buildButton("7"),
+                    buildButton("8"),
+                    buildButton("9"),
+                    buildButton("/"),
+                  ],
+                ),
+                Row(
+                  children: [
+                    buildButton("4"),
+                    buildButton("5"),
+                    buildButton("6"),
+                    buildButton("x"),
+                  ],
+                ),
+                Row(
+                  children: [
+                    buildButton("1"),
+                    buildButton("2"),
+                    buildButton("3"),
+                    buildButton("-"),
+                  ],
+                ),
+                Row(
+                  children: [
+                    buildButton("0"),
+                    buildButton("."),
+                    buildButton("="),
+                    buildButton("+"),
+                  ],
+                ),
+              ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+</code>
+</pre>
