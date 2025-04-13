@@ -1,7 +1,7 @@
 # week5-homework
-
+  #### 화면나누기
 <pre>
-  #### 화면나누기기
+
   <code>
 import 'package:flutter/material.dart';
 
